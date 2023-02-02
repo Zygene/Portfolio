@@ -17,7 +17,7 @@
        {
         $error = "Remplir le formulaire";
        }else{
-            // traitement du login et mot pass
+            // traitement du login et mot passe
             $login = htmlspecialchars($_POST['login']);
             $req = $bdd->prepare("SELECT * FROM admin WHERE login=?");
             $req->execute([$login]);
