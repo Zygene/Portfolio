@@ -152,8 +152,8 @@
                             echo "<td>".$don['gnom']."</td>";
                             echo "<td>".$don['cnom']."</td>";
                             echo "<td class='text-center'>";
-                                echo "<a href='updateProduct.php?id=".$don['pid']."' class='btn btn-warning m-2'>Modifier</a>";
-                                echo "<a href='products.php?delete=".$don['pid']."' class='btn btn-danger m-2'>Supprimer</a>";
+                                echo "<a href='updateProduct.php?id=".$don['gid']."' class='btn btn-warning m-2'>Modifier</a>";
+                                echo "<a href='products.php?delete=".$don['gid']."' class='btn btn-danger m-2'>Supprimer</a>";
                             echo "</td>";
                         echo "</tr>";
                     }

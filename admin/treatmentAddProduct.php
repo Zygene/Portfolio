@@ -6,21 +6,18 @@
     }
 
     // s'il vient de mon form ou non
-    if(isset($_POST['nom']))
+    if(isset($_POST['title']))
     {
         // vérif du contenu du formulaire et gestion error
         // init d'une variable $err à 0 
         $err = 0;
-        $categorie = $_POST['categorie'];
-        $title = $_POST['nom'];
-        $date = $_POST['date'];
         $description = $_POST['description'];
         
-        if(empty($_POST['nom']))
+        if(empty($_POST['title']))
         {
             $err = 1;
         }else{
-            $title = htmlspecialchars($_POST['nom']);
+            $title = htmlspecialchars($_POST['title']);
         }
         
         if(empty($_POST['categorie']))
@@ -72,7 +69,7 @@
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier.$fichiercptl))
                 {
                     require "../connexion.php";
-                    $insert = $bdd->prepare("INSERT INTO products(nom,id_categorie,date,description,cover) VALUES(?,?,?,?,?)");
+                    $insert = $bdd->prepare("INSERT INTO products(title,id_categorie,date,description,cover) VALUES(?,?,?,?,?)");
                     $insert->execute([$title,$categorie,$date,$description,$fichiercptl]);
                     $insert->closeCursor();
                     // tester l'extension pour envoyer vers le bon fichier de redim

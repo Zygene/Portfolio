@@ -12,7 +12,7 @@ $source = imagecreatefromjpeg("../images/bdd/".$_GET['image']); // La photo est 
 
 // getimagesize retourne un array contenant la largeur [0] et la hauteur [1]
 
-$TailleImageChoisie = getimagesize("../images/".$_GET['image']);
+$TailleImageChoisie = getimagesize("../images/bdd/".$_GET['image']);
 
 // je définis la largeur de l'image.
 
@@ -42,7 +42,7 @@ imagecopyresampled($destination, $source, 0, 0, 0, 0, $NouvelleLargeur, $Nouvell
 
 // On enregistre la miniature sous le nom "mini_"
 
-$rep_nom="../images/mini_".$_GET['image'];
+$rep_nom="../images/bdd/mini_".$_GET['image'];
 
 imagejpeg($destination,$rep_nom,80);
 

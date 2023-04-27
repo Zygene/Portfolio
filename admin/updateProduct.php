@@ -16,7 +16,7 @@
 
     // vérifier si l'id est dans la bdd
     require "../connexion.php";
-    $req = $bdd->prepare("SELECT * FROM images WHERE id=?");
+    $req = $bdd->prepare("SELECT * FROM products WHERE id=?");
     $req->execute([$id]);
     if(!$don = $req->fetch())
     {
@@ -46,7 +46,7 @@
         <form action="treatmentUpdateProduct.php?id=<?= $id ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group my-3">
                 <label for="title">Nom</label>
-                <input type="text" id="title" name="nom" value="<?= $don['nom'] ?>" class="form-control">
+                <input type="text" id="title" name="title" value="<?= $don['title'] ?>" class="form-control">
             </div>
             <div class="form-group my-3">
                 <label for="description">Description</label>
@@ -54,7 +54,7 @@
             </div>
             <div class="form-group my-3" style="resize: none">
                 <label for="categorie">Catégorie</label>
-                <textarea name="categorie" id="categorie" class="form-control"><?= $don['categorie'] ?></textarea>
+                <textarea name="categorie" id="categorie" class="form-control"><?= $don['id_categorie'] ?></textarea>
             </div>
             <div class="form-group my-3">
                 <label for="date">Date</label>
@@ -63,7 +63,7 @@
             <div class="form-group-my-3">
                 <div class="row">
                     <div class="col-4">
-                        <img src="../images/bdd/<?= $don['image'] ?>" alt="image du produit <?= $don['nom'] ?>" class="img-fluid">
+                        <img src="../images/bdd/<?= $don['cover'] ?>" alt="image du produit <?= $don['title'] ?>" class="img-fluid">
                     </div>
                 </div>
                 <label for="image">Modifier l'image de couverture</label>
