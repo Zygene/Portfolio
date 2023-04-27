@@ -30,6 +30,8 @@
         // vérif du contenu du formulaire et gestion error
         // init d'une variable $err à 0 
         $err = 0;
+        $description = htmlspecialchars($_POST['description']);
+
         if(empty($_POST['nom']))
         {
             $err = 1;
@@ -37,12 +39,6 @@
             $nom = htmlspecialchars($_POST['nom']);
         }
 
-        if(empty($_POST['description']))
-        {
-            $err = 3;
-        }else{
-            $description = htmlspecialchars($_POST['description']);
-        }
 
         //vérif si err sinon traitement
         if($err==0){

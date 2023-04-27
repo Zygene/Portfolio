@@ -52,10 +52,24 @@
                 <label for="description">Description</label>
                 <textarea name="description" id="description" class="form-control"><?= $don['description'] ?></textarea>
             </div>
-            <div class="form-group my-3" style="resize: none">
-                <label for="categorie">Catégorie</label>
-                <textarea name="categorie" id="categorie" class="form-control"><?= $don['id_categorie'] ?></textarea>
-            </div>
+            <div class="form-group my-3">
+                    <label for="categorie">Categorie: </label>
+                    <select name="categorie" id="categorie" class="form-control">
+                        <?php 
+                            $cat = $bdd->query("SELECT * FROM categorie");
+                            while($donCat = $cat->fetch())
+                            {
+                                if($donCat['id'] == $don['id_categorie'])
+                                {
+                                    echo "<option value='".$donCat['id']."' selected>".$donCat['nom']."</option>";
+                                }else{
+                                    echo "<option value='".$donCat['id']."'>".$donCat['nom']."</option>";
+                                }
+                            }
+                            $cat->closeCursor();
+                        ?>
+                    </select>
+                </div>
             <div class="form-group my-3">
                 <label for="date">Date</label>
                 <input type="date" id="date" name="date" value="<?= $don['date'] ?>" class="form-control">

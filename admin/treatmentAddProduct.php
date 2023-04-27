@@ -20,21 +20,16 @@
             $title = htmlspecialchars($_POST['title']);
         }
         
-        if(empty($_POST['categorie']))
+        if(is_numeric($_POST['categorie']))
         {
-            $err = 2;
+            $categorie = htmlspecialchars($_POST['categorie']);
         }else{
-            if(is_numeric($_POST['categorie']))
-            {
-                $categorie = htmlspecialchars($_POST['categorie']);
-            }else{
-                $err = 3;
-            }
+            $err = 2;
         }
         
         if(empty($_POST['date']))
         {
-            $err = 4;
+            $err = 3;
         }else{
             $date = htmlspecialchars($_POST['date']);
         }
@@ -43,7 +38,7 @@
         if($err==0){
             $dossier = "../images/bdd/"; // ../images/monfichier.jpg
             $fichier = basename($_FILES['image']['name']);
-            $taille_maxi = 20000000;
+            $taille_maxi = 50000000;
             $taille = filesize($_FILES['image']['tmp_name']);
             $extensions = ['.png','.jpg','.jpeg'];
             $extension = strrchr($_FILES['image']['name'],'.');

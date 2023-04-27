@@ -56,7 +56,7 @@
         <?php 
             if(isset($_GET['delsuccess']))
             {
-                echo "<div class='alert alert-danger my-3'>Vous avez supprimer la catégorie n°".$_GET['delsuccess']."</div>";
+                echo "<div class='alert alert-danger my-3'>Vous avez supprimé la catégorie n°".$_GET['delsuccess']."</div>";
             }
             if(isset($_GET['add']))
             {

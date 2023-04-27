@@ -15,7 +15,7 @@
  
      // vérifier si l'id est dans la bdd
      require "../connexion.php";
-     $req = $bdd->prepare("SELECT * FROM galerie WHERE id=?");
+     $req = $bdd->prepare("SELECT * FROM products WHERE id=?");
      $req->execute([$id]);
      if(!$don = $req->fetch())
      {
@@ -25,38 +25,34 @@
      $req->closeCursor();
 
     // s'il vient de mon form ou non
-    if(isset($_POST['nom']))
+    if(isset($_POST['title']))
     {
         // vérif du contenu du formulaire et gestion error
         // init d'une variable $err à 0 
         $err = 0;
-        if(empty($_POST['nom']))
+        $description = $_POST['description'];
+
+        if(empty($_POST['title']))
         {
             $err = 1;
         }else{
-            $title = htmlspecialchars($_POST['nom']);
+            $title = htmlspecialchars($_POST['title']);
         }
 
-        if(empty($_POST['categorie']))
+        if(is_numeric($_POST['categorie']))
         {
-            $err = 2;
-        }else{
             $categorie = htmlspecialchars($_POST['categorie']);
+        }else{
+            $err = 2;
         }
 
         if(empty($_POST['date']))
         {
-            $err = 2;
+            $err = 3;
         }else{
             $date = htmlspecialchars($_POST['date']);
         }
 
-        if(empty($_POST['description']))
-        {
-            $err = 3;
-        }else{
-            $description = htmlspecialchars($_POST['description']);
-        }
 
         //vérif si err sinon traitement
         if($err==0){
@@ -64,22 +60,21 @@
             if(empty($_FILES['image']['tmp_name']))
             {
                 // pas d'image, donc modif sans fichier
-                require "../connexion.php";
-                $update = $bdd->prepare("UPDATE images SET nom=:nom, date=:date, description=:description, categorie=:categorie WHERE id=:myid");
+                $update = $bdd->prepare("UPDATE products SET title=:titre, date=:date, description=:description, id_categorie=:categorie WHERE id=:myid");
                 $update->execute([
-                    ":nom" => $title, 
+                    ":titre" => $title,
+                    ":categorie"=>$categorie, 
                     ":date" => $date, 
-                    ":description" => $description,
-                    ":categorie" => $categorie,
+                    ":description" => $description, 
                     ":myid" => $id
                 ]);
                 $update->closeCursor();
-                header("LOCATION:products.php");
+                header("LOCATION:products.php?updatesuccess=".$id);
             }else{
                 // traitement de l'image pour la modification
                 $dossier = "../images/bdd/"; // ../images/monfichier.jpg
                 $fichier = basename($_FILES['image']['name']);
-                $taille_maxi = 20000000;
+                $taille_maxi = 5000000;
                 $taille = filesize($_FILES['image']['tmp_name']);
                 $extensions = ['.png','.jpg','.jpeg'];
                 $extension = strrchr($_FILES['image']['name'],'.');
@@ -105,19 +100,19 @@
                     if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier.$fichiercptl))
                     {
                         // supprimer le fichier de base
-                        unlink("../images/bdd/".$don['image']);
-                        require "../connexion.php";
-                        $update = $bdd->prepare("UPDATE galerie SET nom=:nom, date=:date, description=:description, categorie=:categorie, image=:image WHERE id=:myid");
+                        unlink("../images/bdd/".$don['cover']);
+                        // ne pas oublier la miniature
+                        unlink("../images/bdd/mini_".$don['cover']);
+                        $update = $bdd->prepare("UPDATE products SET title=:titre, date=:date, description=:description, id_categorie=:categorie, cover=:image WHERE id=:myid");
                         $update->execute([
-                            ":nom" => $title, 
+                            ":titre" => $title, 
+                            ":categorie"=>$categorie,
                             ":date" => $date, 
                             ":description" => $description, 
                             ":image"=>$fichiercptl,
-                            ":categorie" => $categorie,
                             ":myid" => $id
                         ]);
                         $update->closeCursor();
-
                         // tester l'extension pour envoyer vers le bon fichier de redim et envoyer que c'est une modification avec l'id du produit à modif
                         if($extension==".png")
                         {
@@ -125,7 +120,6 @@
                         }else{
                             header("LOCATION:redim.php?update=".$id."&image=".$fichiercptl);
                         }
-                        // header("LOCATION:products.php?updatesuccess=".$id);
                     }else{
                         header("LOCATION:updateProduct.php?id=".$id."&errorimg=3");
                     }             
