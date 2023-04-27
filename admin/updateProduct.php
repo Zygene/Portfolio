@@ -33,7 +33,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <title>Administration de la galerie</title>
+    <title>Portfolio: Admin - Galerie</title>
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
