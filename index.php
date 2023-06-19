@@ -8,32 +8,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icones/apple-touch-57px.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icones/apple-touch-72px.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icones/apple-touch-76px.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icones/apple-touch-114px.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icones/apple-touch-120px.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icones/apple-touch-144px.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icones/apple-touch-152px.png">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-196px.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-160px.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-96px.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-32px.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-16px.png" sizes="16x16">
+    <link rel="mask-icon" href="/images/icones/safari-svg.svg" color="#000000">
     <link rel="stylesheet" href="style.css">
     <title>Robin Wilmes</title>
 </head>
 <body>
 
-<h1>Stock</h1>
     <div class="slide" id="home">
-        <div id="container-products">
-            <?php
-                $req = $bdd->query("SELECT * FROM products ORDER BY date DESC LIMIT 0, 3");
-                while($don = $req->fetch())
-                {
-                    //var_dump($don);
-                    echo "<a class='products' href='product.php?id=".$don['id']."'>";
-                        echo "<img src='images/mini_".$don['cover']."' alt='image de ".$don['title']."'>";
-                        echo "<div class='prod-title'>".$don['title']."</div>";
-                    echo "</a>";
-                }
-                $req->closeCursor();
-            ?>
-        </div> 
-        <a href="products.php">Voir plus</a>
-    </div>
-    <div class="slide" id="contact">
         <div class="wrapper">
-            <h2>Contact</h2>
+
+            <img src="images/portfolio/Portfolio.svg" alt="Portfolio Robin Wilmes" id="portfolio">
+
+            <nav>
+                <ul>
+                    <li><a href="#presentation">A propos</a></li>
+                    <li><a href="#galerie">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="bouton">
+                <h2><a href="#presentation">Me découvrir</a></h2>
+            </div>
+            
+            <div class="bloc_texte">
+                <h1>Robin Wilmes</h1>
+                <h3>Infographiste</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- --------------------------------------------- -->
+
+    <div class="slide2" id="presentation">
+        <div class="wrapper">
+
+            <div class="fleche"></div>
+
+            <h1>A propos de moi</h1>
+
+        </div>
+    </div>
+
+    <!-- --------------------------------------------- -->
+
+    <div class="slide3" id="galerie">
+        <div class="wrapper">
+
+            <h1>Portfolio</h1>
+            <div id="container-products">
+                <?php
+                    $req = $bdd->query("SELECT * FROM products ORDER BY date DESC LIMIT 0, 3");
+                    while($don = $req->fetch())
+                    {
+                        //var_dump($don);
+                        echo "<a class='products' href='product.php?id=".$don['id']."'>";
+                            echo "<img src='images/mini_".$don['cover']."' alt='image de ".$don['title']."'>";
+                            echo "<div class='prod-title'>".$don['title']."</div>";
+                        echo "</a>";
+                    }
+                    $req->closeCursor();
+                ?>
+            </div> 
+            <a href="products.php">Voir plus</a>
+
+        </div>
+    </div>
+
+    <!-- --------------------------------------------- -->
+
+    <div class="slide4" id="contact">
+        <div class="wrapper">
+
+            <h1>Contact</h1>
             <form action="traitement.php" method="POST" id="my-form">
                 <?php
                     if(isset($_GET['add']))
@@ -74,6 +134,7 @@
                 ?>
 
             </form>
+
         </div>
     </div>
 
