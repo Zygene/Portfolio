@@ -30,6 +30,7 @@
         <div class="wrapper">
 
             <img src="images/portfolio/Portfolio.svg" alt="Portfolio Robin Wilmes" id="portfolio">
+            <img src="images/portfolio/Logo.svg" alt="Logo Robin Wilmes" id="logo">
 
             <nav>
                 <ul>
@@ -45,8 +46,10 @@
             
             <div class="bloc_texte">
                 <h1>Robin Wilmes</h1>
-                <h3>Infographiste</h3>
+                <h3>Graphiste - Infographiste</h3>
             </div>
+
+            <div class="fleche"></div>
 
         </div>
     </div>
@@ -55,10 +58,10 @@
 
     <div class="slide2" id="presentation">
         <div class="wrapper">
+ 
+            <h1>A propos</h1>
 
-            <div class="fleche"></div>
-
-            <h1>A propos de moi</h1>
+            <img src="images/portfolio/Oeil.svg" alt="Robin Wilmes" id="oeil">
 
         </div>
     </div>
@@ -68,22 +71,28 @@
     <div class="slide3" id="galerie">
         <div class="wrapper">
 
-            <h1>Portfolio</h1>
+            <!-- <img src="images/portfolio/Portfolio.svg" alt="Portfolio Robin Wilmes" id="portfolio"> -->
+
+            <h1>Galerie</h1>
+            
             <div id="container-products">
+
                 <?php
                     $req = $bdd->query("SELECT * FROM products ORDER BY date DESC LIMIT 0, 3");
                     while($don = $req->fetch())
                     {
                         //var_dump($don);
                         echo "<a class='products' href='product.php?id=".$don['id']."'>";
-                            echo "<img src='images/mini_".$don['cover']."' alt='image de ".$don['title']."'>";
-                            echo "<div class='prod-title'>".$don['title']."</div>";
+                            echo "<img src='images/bdd/".$don['cover']."' alt='image de ".$don['title']."'>";
+                            // echo "<div class='prod-title'>".$don['title']."</div>";
                         echo "</a>";
                     }
                     $req->closeCursor();
                 ?>
+
             </div> 
-            <a href="products.php">Voir plus</a>
+            
+            <a href="products.php">En voir plus</a>
 
         </div>
     </div>
@@ -93,33 +102,33 @@
     <div class="slide4" id="contact">
         <div class="wrapper">
 
-            <h1>Contact</h1>
+            <h1>Me contacter</h1>
             <form action="traitement.php" method="POST" id="my-form">
                 <?php
                     if(isset($_GET['add']))
                     {
-                        echo "<div class='success'>Votre message a bien été envoyé</div>";
+                        echo "<div class='success'>Message envoyé</div>";
                     }
                 ?>
                 <div class="form-group">
                     <label for="nom">Nom: </label>
                     <input type="text" name="nom" id="nom">
                     <div class="invalid-feedback">
-                        Veuillez remplir le champ nom correctement
+                        Veuillez ajouter un nom
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail: </label>
                     <input type="email" name="email" id="email">
                     <div class="invalid-feedback">
-                        Veuillez remplir le champ adresse e-mail correctement
+                        Veuillez ajouter une adresse e-mail
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="message">Message: </label>
                     <textarea name="message" id="message"></textarea>
                     <div class="invalid-feedback">
-                        Veuillez remplir le champ message correctement
+                        Veuillez ajouter un message
                     </div>
                 </div>
                 <div class="form-group">
@@ -134,6 +143,10 @@
                 ?>
 
             </form>
+            
+            <footer>&copy; Copyright EPSE 2023</footer>
+
+            <img src="images/portfolio/Plantes.svg" alt="Robin Wilmes" id="plantes">
 
         </div>
     </div>

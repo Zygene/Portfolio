@@ -50,7 +50,7 @@
         <?php 
             if(isset($_GET['delsuccess']))
             {
-                echo "<div class='alert alert-danger'>Vous avez supprimer le message n°".$_GET['delsuccess']."</div>";
+                echo "<div class='alert alert-danger'>Vous avez supprimé le message n°".$_GET['delsuccess']."</div>";
             }
 
         ?>

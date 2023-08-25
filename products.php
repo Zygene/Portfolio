@@ -54,7 +54,7 @@
             {
                 //var_dump($don);
                 echo "<a class='products' href='product.php?id=".$don['id']."'>";
-                    echo "<img src='images/mini_".$don['cover']."' alt='image de ".$don['title']."'>";
+                    echo "<img src='images/bdd/".$don['cover']."' alt='image de ".$don['title']."'>";
                     echo "<div class='prod-title'>".$don['title']."</div>";
                 echo "</a>";
             }
