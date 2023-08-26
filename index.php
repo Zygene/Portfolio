@@ -78,11 +78,11 @@
             <div id="container-products">
 
                 <?php
-                    $req = $bdd->query("SELECT * FROM products ORDER BY date DESC LIMIT 0, 3");
+                    $req = $bdd->query("SELECT * FROM products ORDER BY date DESC LIMIT 0, 4");
                     while($don = $req->fetch())
                     {
                         //var_dump($don);
-                        echo "<a class='products' href='product.php?id=".$don['id']."'>";
+                        echo "<a class='products' href='products.php?id=".$don['id']."'>";
                             echo "<img src='images/bdd/".$don['cover']."' alt='image de ".$don['title']."'>";
                             // echo "<div class='prod-title'>".$don['title']."</div>";
                         echo "</a>";
@@ -107,25 +107,25 @@
                 <?php
                     if(isset($_GET['add']))
                     {
-                        echo "<div class='success'>Message envoyé</div>";
+                        echo "<div class='success'>Votre message a bien été envoyé</div>";
                     }
                 ?>
                 <div class="form-group">
-                    <label for="nom">Nom: </label>
+                    <label for="nom">Nom</label>
                     <input type="text" name="nom" id="nom">
                     <div class="invalid-feedback">
                         Veuillez ajouter un nom
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email">E-mail: </label>
+                    <label for="email">E-mail</label>
                     <input type="email" name="email" id="email">
                     <div class="invalid-feedback">
-                        Veuillez ajouter une adresse e-mail
+                        Veuillez ajouter une adresse E-mail
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message: </label>
+                    <label for="message">Message</label>
                     <textarea name="message" id="message"></textarea>
                     <div class="invalid-feedback">
                         Veuillez ajouter un message
@@ -143,8 +143,15 @@
                 ?>
 
             </form>
-            
-            <footer>&copy; Copyright EPSE 2023</footer>
+
+            <div class="footer">
+                <footer>
+                    <ul class="list-inline">
+                        <li><a href="#home">Accueil </a> | <a href="#presentation"> A propos</a> | <a href="#galerie"> Galerie </a> | <a href="#"> Politique de confidentialité</a></li>
+                    </ul>
+                    <p class="copyright">Robin Wilmes © 2023</p>
+                </footer>
+            </div>
 
             <img src="images/portfolio/Plantes.svg" alt="Robin Wilmes" id="plantes">
 

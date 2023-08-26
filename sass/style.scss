@@ -6,7 +6,7 @@ $mauve1: #BEAAC1;
 $mauve2: #9CA0B7;
 $violet: #530E33;
 $rouge: #d83232;
-$vert: #71bc74;
+$vert: #60a57c;
 
 *{
     margin: 0;
@@ -15,6 +15,7 @@ $vert: #71bc74;
 }
 
 html{
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory; //ou proximity
 }
@@ -126,7 +127,7 @@ html{
 // ****************************************************************************
 
 .slide2{
-    background: linear-gradient(150deg, $beige, 60%, $mauve1);
+    background: linear-gradient(150deg, $beige, 70%, $mauve1);
     min-height: 100vh;
     width: 100%;
     scroll-snap-align: start;
@@ -158,6 +159,7 @@ html{
     scroll-snap-stop: always;
     // position: -webkit-sticky; //Pour Safari
     // position: sticky;
+    overflow: hidden;
     position: relative;
     z-index: 3;
     
@@ -168,40 +170,29 @@ html{
         font-size: 10vh;
     }
 
-    .slide-container{
-        height: 500px;
-        width: 800px;
 
-        overflow: auto;
-        scroll-snap-type: x mandatory;
+        #container-products{
+            width: 80%;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            display: flex;
+        }
 
-        .slide{
-            scroll-snap-align: start;
-
-            #container-products{
-                width: 80%;
-                margin: 0 auto;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-                display: flex;
-            }
-
-            .products{
-                display: block;
-                width: 15%;
-                height: 15%;
-                position: relative;
-                overflow: hidden;
-                margin-top: 20px;
+        .products{
+            display: block;
+            width: 300px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
                 
-                img{
-                    object-fit: cover;
-                    width: 800px;
-                    height: 100%;
-                }
+            img{
+                object-fit: cover;
+                width: 800px;
+                height: 100%;
             }
         }
-    }
 
     a{
         color: $noir;
@@ -223,100 +214,132 @@ html{
 // ****************************************************************************
 
 .slide4{
-    background: linear-gradient(150deg, $beige, 60%, $mauve1);
+    background: linear-gradient(150deg, $beige, 70%, $mauve1);
     height: 100vh;
     width: 100%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
     z-index: 4;
+    overflow: hidden;
 
     h1{
         color: $noir;
         font-family: 'Bodoni Moda', serif;
         font-size: 10vh;
+        padding-bottom: -5%;
 
     }
 
-    footer{
-        color: $noir;
-        font-family: 'Gothic A1', sans-serif;
-        font-size: 2.2vh;
+    #plantes{
+        max-width: 25%;
+        height: auto;
+        margin-top: -72vh;
+        margin-left: -5%;
+        position: relative;
     }
 
     form{
-        color: $noir;
-        font-family: 'Gothic A1', sans-serif;
         margin-left: 50%;
 
         .form-group{
             width: 100%;
-            margin-bottom: 2em;
+            margin: 2% 0;
 
-            label{
-                display: block;
-            }
+                label{
+                    display: block;
+                    color: $noir;
+                    font-family: 'Gothic A1', sans-serif;
+                    font-size: 2.8vh;
+                    margin-top: 3%;
+                }
 
-            textarea{
-                resize: none;
-                height: 50%;
-                width: 50%;
-                font-size: 1.2em;
-            }
-
-            input{
-                font-size: 1.2em;
-            }
-
-            .is-invalid{
-                border-color: $rouge;
-            }
-            
-            .is-invalid:focus{
-                border: none;
-                outline:none;
-                outline: solid $rouge 1px;
-            }
-            
-            .invalid-feedback{
-                color: $rouge;
-                display: none;
-            }
-            /* select frère adjacent */
-            .is-invalid + .invalid-feedback{
-                display: block;
-            }
+                textarea{
+                    resize: none;
+                    height: 12em;
+                }
         }
 
-        .form-group input[type=submit]
-        {
+        .form-group input, .form-group textarea{
+            width: 100%;
+            font-size: 1.2em;
+            padding: 10px;
+            margin-top: 5px;
+            outline: solid $noir 0.5px;
+        }
+        
+        .form-group input[type=submit]{
             width: auto;
             padding: 3px 50px;
-        }
-
-        /** pour PHP (GET error et GET add = success) **/
-        .error{
-            width: 100%;
-            text-align: center;
-            background-color: $rouge;
-            padding: 20px 0;
-        }
-                    
-        .success{
-            width: 100%;
-            text-align: center;
-            background-color: $vert;
-            padding: 20px 0;  
+            cursor: pointer;
         }
     }
-}
 
-#plantes{
-    max-width: 25%;
-    height: auto;
-    margin-top: 5%;
-    position: relative;
-    margin-left: -5%;
-    margin-top: -20em;
-    overflow: hidden;
+    .is-invalid{
+        border-color: $rouge;
+    }
+    
+    .is-invalid:focus{
+        border: none;
+        outline:none;
+        outline: solid $rouge 1.5px;
+    }
+    
+    .invalid-feedback{
+        color: $rouge;
+        display: none;
+    }
+    /* select frère adjacent */
+    .is-invalid + .invalid-feedback{
+        display: block;
+    }
+    
+    /** pour PHP (GET error et GET add = success) **/
+    .error{
+        font-family: 'Gothic A1', sans-serif;
+        font-size: 2.2vh;
+        font-weight: 800;
+        width: 100%;
+        text-align: center;
+        color: $rouge;
+        padding: 10px 0;
+        margin-bottom: -20px;
+    }
+    
+    .success{
+        font-family: 'Gothic A1', sans-serif;
+        font-weight: 800;
+        text-align: center;
+        color: $vert;
+        padding: 10px 0;
+        margin-bottom: -10px;
+    }
+
+    .footer{
+        font-family: 'Gothic A1', sans-serif;
+        font-size: 2.2vh;
+        padding-top: 3%;
+
+        ul{
+            list-style:none;
+            text-align:center;
+            line-height:1.8;
+
+            a{
+                color: $noir;
+                text-decoration:none;
+            }
+
+            a:hover{
+                color: $violet;
+            }
+        }
+
+        .copyright{
+            margin-top:1%;
+            text-align:center;
+            font-size: 1.7vh;
+            font-weight: 500;
+        }
+    }
 }
