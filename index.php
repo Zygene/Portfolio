@@ -30,26 +30,24 @@
         <div class="wrapper">
 
             <img src="images/portfolio/Portfolio.svg" alt="Portfolio Robin Wilmes" id="portfolio">
-            <img src="images/portfolio/Logo.svg" alt="Logo Robin Wilmes" id="logo">
 
             <nav>
                 <ul>
                     <li><a href="#presentation">A propos</a></li>
-                    <li><a href="#galerie">Portfolio</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
 
-            <div class="bouton">
-                <h2><a href="#presentation">Me découvrir</a></h2>
-            </div>
+            <div class="bouton"><a href="#presentation">Me découvrir</a></div>
             
             <div class="bloc_texte">
+                <img src="images/portfolio/Logo.svg" alt="Logo Robin Wilmes" id="logo">
                 <h1>Robin Wilmes</h1>
                 <h3>Graphiste - Infographiste</h3>
             </div>
 
-            <div class="fleche"></div>
+            <!-- <div class="fleche"></div> -->
 
         </div>
     </div>
@@ -58,10 +56,31 @@
 
     <div class="slide2" id="presentation">
         <div class="wrapper">
- 
-            <h1>A propos</h1>
+            <div class="wrapper2">
 
-            <img src="images/portfolio/Oeil.svg" alt="Robin Wilmes" id="oeil">
+                <h1>A propos</h1>
+
+                <p>Bienvenue sur mon Portfolio. Je suis Robin Wilmes et ce site web est dédié à mon travail et à mes réalisations dans le domaine de l'infographie.</p>
+
+                <h3>Compétences</h3>
+
+                <img src="images/portfolio/Photoshop.png" alt="Logo Photoshop" id="competence">
+                <img src="images/portfolio/Illustrator.png" alt="Logo Illustrator" id="competence">
+                <img src="images/portfolio/InDesign.png" alt="Logo InDesign" id="competence">
+                <img src="images/portfolio/Animate.png" alt="Logo Animate" id="competence">
+                <img src="images/portfolio/AfterEffect.png" alt="Logo AfterEffect" id="competence">
+                <img src="images/portfolio/Audition.png" alt="Logo Audition" id="competence">
+                <img src="images/portfolio/Figma.png" alt="Logo Figma" id="competence">
+                <img src="images/portfolio/Html.png" alt="Logo Html" id="competence">
+                <img src="images/portfolio/Css.png" alt="Logo Css" id="competence">
+                <img src="images/portfolio/Php.png" alt="Logo Php" id="competence">
+
+            </div>
+
+            <div class="wrapper3">
+                <img src="images/portfolio/Oeil.svg" alt="Robin Wilmes" id="oeil">
+
+            </div>
 
         </div>
     </div>
@@ -147,7 +166,7 @@
             <div class="footer">
                 <footer>
                     <ul class="list-inline">
-                        <li><a href="#home">Accueil </a> | <a href="#presentation"> A propos</a> | <a href="#galerie"> Galerie </a> | <a href="#"> Politique de confidentialité</a></li>
+                        <li><a href="#home">Accueil </a> | <a href="#presentation"> A propos</a> | <a href="#galerie"> Galerie </a> | <a href="legal.php"> Politique de confidentialité</a></li>
                     </ul>
                     <p class="copyright">Robin Wilmes © 2023</p>
                 </footer>

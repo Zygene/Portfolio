@@ -33,23 +33,33 @@ html{
     scroll-snap-stop: always;
     // position: -webkit-sticky; //Pour Safari
     // position: sticky;
-    top: 0;
+    // top: 0;
     z-index: 1;
 
     nav{
         display: flex;
         justify-content: end;
         font-size: 3vh;
+        margin-bottom: 50vh;
         
         ul{
+            margin-top: 2.5%;
             list-style: none;
+            outline: solid $violet 1vh;
+            padding: 3%;
             
             li{
+                margin-top: 20px;
                 font-family: 'Gothic A1', sans-serif;
                 
                 a{
                     color: $blanc;
                     text-decoration: none;
+                    text-shadow: 1px 1px 10px $noir;
+                }
+
+                a:hover{
+                    color: $violet;
                 }
             }
         }
@@ -58,70 +68,72 @@ html{
     .bouton{
         background-color: $violet;
         width: 38vh;
-        height: 10vh;
-        justify-content: space-between;
-
-        h2{
-            display: flex;
-            justify-content: center;
-            text-align: center;
+        height: 8vh;
+        display: flex;
+        justify-content: center;
+        padding: 1.5vh 0; 
+        margin-left: 10%;
             
-            a{
-                color: $blanc;
-                font-family: 'Gothic A1', sans-serif;
-                text-decoration: none;
-                font-size: 4vh;
-                font-weight: 400;
-                letter-spacing: 1px;
-            }
+        a{
+            color: $blanc;
+            font-family: 'Gothic A1', sans-serif;
+            text-decoration: none;
+            font-size: 4vh;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
     }
 
     .bloc_texte{
-
-        justify-content: start;
+        display: block;
+        margin-top: -35vh;
+        position: relative;
 
         h1, h3{
             color: $blanc;
-            font-family: 'Gothic A1', sans-serif;
             display: flex;
             justify-content: end;
         }
-    
+        
         h1{
-            font-weight: 900;
-            font-size: 6vh;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 9vh;
+            letter-spacing: 2px;
         }
-    
+        
         h3{
+            font-family: 'Gothic A1', sans-serif;
             font-weight: 500;
             font-size: 3vh;
+            letter-spacing: 1px;
+        }
+
+        #logo{
+            max-width: 10%;
+            height: auto;
+            margin-top: 5%;
+            position: absolute;
+            justify-content: end;
         }
     }
 
     #portfolio{
-        max-width: 65%;
+        max-width: 60%;
         height: auto;
-        margin-top: 5%;
-        position: relative;
+        margin-top: 2.5%;
+        position: absolute;
+        margin-left: -5%;
     }
 
-    #logo{
-        max-width: 10%;
-        height: auto;
-        margin-top: 5%;
-        position: relative;
-    }
-
-    .fleche {
-        width: 0;
-        height: 0;
-        border-right: 5vh solid transparent;
-        border-left: 5vh solid transparent;
-        border-top: 4vh solid $noir;
-        justify-content: center;
-        flex: flex;
-    }
+    // .fleche {
+    //     width: 0;
+    //     height: 0;
+    //     border-right: 5vh solid transparent;
+    //     border-left: 5vh solid transparent;
+    //     border-top: 4vh solid $noir;
+    //     justify-content: center;
+    //     flex: flex;
+    // }
 }
 
 // ****************************************************************************
@@ -135,17 +147,56 @@ html{
     position: relative;
     z-index: 2;
 
-    h1{
-        color: $noir;
-        font-family: 'Bodoni Moda', serif;
-        font-size: 10vh;
+    .wrapper2{
+        width: 50%;
+        margin: 0 auto;
+        margin-right: 50%;
+
+        h1{
+            color: $noir;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 10vh;
+        }
+    
+        p{
+            color: $noir;
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 2.5vh;
+            margin-top: 8%;
+    
+            a{
+                text-decoration: underline;
+                color: $noir;
+
+            }
+        }
+
+        h3{
+            color: $noir;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3.5vh;
+            margin-top: 15%;
+            margin-bottom: 3%;
+        }
+
+        #competence{
+            max-width: 6vh;
+            height: auto;
+            margin: 20px 20px;
+        }
     }
 
-    #oeil{
-    max-width: 65%;
-    height: auto;
-    margin-top: 5%;
-    position: relative;
+    .wrapper3{
+        width: 50%;
+        margin: 0 auto;
+        margin-right: -10%;
+
+        #oeil{
+        max-width: 100%;
+        height: auto;
+        margin-top: -50vh;
+        position: relative;
+        }
     }
 }
 
@@ -252,6 +303,7 @@ html{
                     font-family: 'Gothic A1', sans-serif;
                     font-size: 2.8vh;
                     margin-top: 3%;
+
                 }
 
                 textarea{
@@ -289,12 +341,11 @@ html{
         color: $rouge;
         display: none;
     }
-    /* select frère adjacent */
+
     .is-invalid + .invalid-feedback{
         display: block;
     }
     
-    /** pour PHP (GET error et GET add = success) **/
     .error{
         font-family: 'Gothic A1', sans-serif;
         font-size: 2.2vh;
@@ -314,32 +365,104 @@ html{
         padding: 10px 0;
         margin-bottom: -10px;
     }
+}
 
-    .footer{
+.footer{
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2.2vh;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    color: $noir;
+
+    ul{
+        list-style:none;
+        text-align:center;
+        line-height:1.8;
+
+        a{
+            color: $noir;
+            text-decoration:none;
+        }
+
+        a:hover{
+            color: $violet;
+        }
+    }
+
+    .copyright{
         font-family: 'Gothic A1', sans-serif;
-        font-size: 2.2vh;
-        padding-top: 3%;
+        margin-top:1%;
+        text-align:center;
+        font-size: 1.7vh;
+        font-weight: 500;
+    }
+}
+
+
+// ****************************************************************************
+
+
+
+// ****************************************************************************
+
+.slide6{
+    background: linear-gradient(150deg, $beige, 70%, $mauve1);
+    min-height: 100vh;
+    width: 100%;
+
+    nav{
+        display: flex;
+        padding-top: 2.5%;
+        // justify-content: end;
+            
+        .wrapper2{
+            width: 70%;
+            margin-right: 30%;
+            margin-bottom: 5%;
+    
+            h1{
+                color: $noir;
+                font-family: 'Bodoni Moda', serif;
+                font-size: 50px;
+                margin-bottom: 7.5%;
+            }
+        }
 
         ul{
-            list-style:none;
-            text-align:center;
-            line-height:1.8;
-
-            a{
-                color: $noir;
-                text-decoration:none;
-            }
-
-            a:hover{
-                color: $violet;
+            list-style: none;
+            padding-top: 2%;
+            font-size: 3vh;
+            // outline: solid $violet 1vh;
+                
+            li{
+                font-family: 'Gothic A1', sans-serif;
+                background-color: $violet;
+                padding: 15px 25px;
+                    
+                a{
+                    color: $blanc;
+                    text-decoration: none;
+                }
             }
         }
+    }
 
-        .copyright{
-            margin-top:1%;
-            text-align:center;
-            font-size: 1.7vh;
-            font-weight: 500;
+    .wrapper3{
+        width: 60%;
+        margin: 0 auto;
+        color: $noir;
+        font-family: 'Gothic A1', sans-serif;
+
+        h2{
+            font-size: 30px;
+            margin-top: 15%;
+            margin-bottom: 3%;
         }
+
+        p{
+            font-size: 17px;
+            margin-bottom: 5%;
+        }
+
     }
 }
