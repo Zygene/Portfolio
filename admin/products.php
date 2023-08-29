@@ -6,7 +6,7 @@
     }
 
     require "../connexion.php";
-    $limit= 3;
+    $limit= 5;
     $reqcount = $bdd->query("SELECT * FROM products");
     $count = $reqcount->rowCount();
     $nbpage = ceil($count/$limit);

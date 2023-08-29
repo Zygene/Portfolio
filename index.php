@@ -31,23 +31,68 @@
 
             <img src="images/portfolio/Portfolio.svg" alt="Portfolio Robin Wilmes" id="portfolio">
 
-            <nav>
+            <button class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+
+            <ul class="menu">
+                <li><a class="menuNav" href="#home">Accueil</a></li>
+                <li><a class="menuNav" href="#presentation">A propos</a></li>
+                <li><a class="menuNav" href="#galerie">Galerie</a></li>
+                <li><a class="menuNav" href="#contact">Contact</a></li>
+            </ul>
+
+            <script>
+                const menu = document.querySelector(".menu");
+                const menuNav = document.querySelectorAll(".menuNav");
+                const hamburger= document.querySelector(".hamburger");
+                const closeNav= document.querySelector(".closeNav");
+                const bar = document.querySelectorAll(".bar");
+
+                function toggleMenu() {
+            menu.classList.toggle("showMenu");
+            hamburger.classList.toggle("open");
+
+            if (menu.classList.contains("showMenu")) {
+                for (let bar of bars) {
+                    bar.style.transform = "translateX(-50%)";
+                    bar.style.opacity = "0";
+                }
+            } else {
+                for (let bar of bars) {
+                    bar.style.transform = "translateX(-50%)";
+                    bar.style.opacity = "1";
+                }
+            }
+        }
+
+                hamburger.addEventListener("click", toggleMenu);
+
+                menuNav.forEach( 
+                    function(menuNav) { 
+                    menuNav.addEventListener("click", toggleMenu);
+                })
+
+            </script>
+
+            <!-- <nav>
                 <ul>
                     <li><a href="#presentation">A propos</a></li>
                     <li><a href="#galerie">Galerie</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav>
-
-            <div class="bouton"><a href="#presentation">Me découvrir</a></div>
+            </nav> -->
             
-            <div class="bloc_texte">
+            <div class="wrapper2">
                 <img src="images/portfolio/Logo.svg" alt="Logo Robin Wilmes" id="logo">
-                <h1>Robin Wilmes</h1>
-                <h3>Graphiste - Infographiste</h3>
+                <div class="bloc">
+                    <h1>Robin Wilmes</h1>
+                    <h3>Graphiste - Infographiste</h3>
+                </div>
             </div>
-
-            <!-- <div class="fleche"></div> -->
+            
+            <div class="bouton"><a href="#presentation">Me découvrir</a></div>
 
         </div>
     </div>
@@ -60,7 +105,7 @@
 
                 <h1>A propos</h1>
 
-                <p>Bienvenue sur mon Portfolio. Je suis Robin Wilmes et ce site web est dédié à mon travail et à mes réalisations dans le domaine de l'infographie.</p>
+                <p>Bienvenue sur mon Portfolio. Je suis Robin Wilmes et je suis étudiant dans le domaine de l'infographie. Je suis constamment à la recherche de nouvelles idées et de nouvelles inspirations pour créer des infographies qui se démarquent et qui communiquent efficacement</p>
 
                 <h3>Compétences</h3>
 
@@ -93,25 +138,12 @@
             <!-- <img src="images/portfolio/Portfolio.svg" alt="Portfolio Robin Wilmes" id="portfolio"> -->
 
             <h1>Galerie</h1>
-            
-            <div id="container-products">
 
-                <?php
-                    $req = $bdd->query("SELECT * FROM products ORDER BY date DESC LIMIT 0, 4");
-                    while($don = $req->fetch())
-                    {
-                        //var_dump($don);
-                        echo "<a class='products' href='products.php?id=".$don['id']."'>";
-                            echo "<img src='images/bdd/".$don['cover']."' alt='image de ".$don['title']."'>";
-                            // echo "<div class='prod-title'>".$don['title']."</div>";
-                        echo "</a>";
-                    }
-                    $req->closeCursor();
-                ?>
-
-            </div> 
-            
-            <a href="products.php">En voir plus</a>
+            <div class="wrapper2">
+                <h2><a href="illustrations.php">Illustrations</a></h2>
+                <h2><a href="mep.php">Mise en page</a></h2>
+                <h2><a href="animations.php">Animations</a></h2>
+            </div>
 
         </div>
     </div>

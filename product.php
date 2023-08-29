@@ -48,7 +48,7 @@
         {
             while($donGal = $galerie->fetch())
             {
-                echo "<img src='images/".$donGal['fichier']."' alt='image de ".$don['ptitle']."'>";
+                echo "<img src='images/bdd/".$donGal['fichier']."' alt='image de ".$don['ptitle']."'>";
             }
         }else{
             echo "Il n'y pas d'image supplémentaire pour ce produit";

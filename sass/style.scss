@@ -35,34 +35,276 @@ html{
     // position: sticky;
     // top: 0;
     z-index: 1;
+    overflow: hidden;
 
-    nav{
-        display: flex;
-        justify-content: end;
-        font-size: 3vh;
-        margin-bottom: 50vh;
-        
-        ul{
-            margin-top: 2.5%;
-            list-style: none;
-            outline: solid $violet 1vh;
-            padding: 3%;
-            
-            li{
-                margin-top: 20px;
-                font-family: 'Gothic A1', sans-serif;
-                
-                a{
-                    color: $blanc;
-                    text-decoration: none;
-                    text-shadow: 1px 1px 10px $noir;
+    #portfolio{
+        max-width: 60%;
+        height: auto;
+        margin-top: 2.5%;
+        position: absolute;
+        margin-left: -5%;
+
+        @media screen and (max-width: 1300px)
+        {
+            max-width: 70%;
+        }
+
+        @media screen and (max-width: 787px)
+        {
+            max-width: 70%;
+            margin-top: 15%;
+        }
+
+        @media screen and (max-width: 510px)
+        {
+            max-width: 85%;
+            margin-top: 30%;
+        }
+
+        @media screen and (max-width: 435px)
+        {
+            max-width: 87%;
+        }
+    }
+
+    .hamburger{
+        width: 100px;
+        background-color: $beige;
+        border-radius: 40px;
+        position: fixed;
+        z-index: 15;
+        padding: 10px;
+        border: $noir solid 2px;
+        cursor: pointer;
+        top: 7.5vh;
+        margin-left: 72%;
+
+        @media screen and (max-width: 787px)
+        {
+            margin-left: 70%;
+            top: 5vh;
+        }
+
+        @media screen and (max-width: 550px)
+        {
+            margin-left: 65%;
+            top: 2.5vh;
+        }
+
+        @media screen and (max-width: 435px)
+        {
+            margin-left: 57%;
+        }
+
+        .bar{
+            width: 35px;
+            height: 2.5px;
+            margin: 15px 0;
+            margin-left: 50%;
+            transform: translate(-50%, 0);
+            background-color: $noir;
+            transition: transform 0.3s ease;
+
+            &.cross {
+                &:first-child {
+                    transform: translateX(-50%) rotate(45deg);
                 }
-
-                a:hover{
-                    color: $violet;
+    
+                &:last-child {
+                    transform: translateX(-50%) rotate(-45deg);
                 }
             }
         }
+    }
+
+    .closeNav {
+        display: none;
+    }
+
+    .menu {
+        position: fixed;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-out;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        background: $noir;
+        list-style: none;
+        padding: 4rem 0;
+        transition: all 0.3s ease-out;
+
+        li{
+            width: 15%;
+            height: 0 auto;
+            margin: 0 auto 0 auto;
+
+            @media screen and (max-width: 1370px)
+            {
+                width: 30%;
+            }
+
+            @media screen and (max-width: 1025px)
+            {
+                width: 80%;
+            }
+
+            a{
+                font-family: 'Gothic A1', sans-serif;
+                font-weight: 500;
+                font-size: 50px;
+                color: $blanc;
+                text-decoration: none;
+                display: flex;
+                justify-content: center;
+                margin: 75px 0;
+                transition: all 0.2s ease-in-out;
+            }
+    
+            a:hover{
+                transform: scale(1.12);
+            }
+        }
+      }
+
+    .showMenu {
+        transform: translateY(0);
+    }
+
+    .open .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 7.5px);
+    }
+    
+    .open .bar:nth-child(2) {
+        transform: rotate(45deg) translate(-5px, -7.5px);
+    }
+
+    // nav{
+    //     display: flex;
+    //     justify-content: end;
+    //     font-size: 22px;
+    //     margin-bottom: 45vh;
+    //     text-align: end;
+        
+    //     ul{
+    //         margin-top: 2.5%;
+    //         list-style: none;
+    //         padding: 3%;
+            
+    //         li{
+    //             margin-top: 20px;
+    //             font-family: 'Gothic A1', sans-serif;
+                
+    //             a{
+    //                 color: $blanc;
+    //                 text-decoration: none;
+    //                 text-shadow: 1px 1px 10px $noir;
+    //             }
+
+    //             a:hover{
+    //                 color: $violet;
+    //             }
+    //         }
+    //     }
+        
+    //     @media screen and (max-width: 1300px)
+    //     {
+    //         margin-bottom: 36vh;
+    //     }
+
+    //     @media screen and (max-width: 435px)
+    //     {
+    //         display: none;
+    //         margin-bottom: 30vh;
+    //         display: flex;
+    //         justify-content: space-around;
+    //         text-align: center;
+    //     }
+    // }
+    
+    .wrapper2{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        padding-top: 65vh;
+
+        #logo{
+            max-width: 120px;
+            height: auto;
+            padding-top: 10px;
+
+            @media screen and (max-width: 787px)
+            {
+                max-width: 150px;
+                margin-left: 5%;
+            }
+            
+            @media screen and (max-width: 510px)
+            {
+                max-width: 100px;
+                padding-bottom: 45%;
+            }
+
+            @media screen and (max-width: 400px)
+            {
+                max-width: 75px;
+            }
+        }
+
+        .bloc{
+            padding-left: 2.5%;
+            
+            h1, h3{
+                color: $blanc;
+            }
+            
+            h1{
+                font-family: 'Bodoni Moda', serif;
+                font-size: 67px;
+                letter-spacing: 2px;
+
+                @media screen and (max-width: 510px)
+                {
+                    font-size: 60px;
+                }
+            }
+            
+            h3{
+                font-family: 'Gothic A1', sans-serif;
+                font-weight: 500;
+                font-size: 22px;
+                letter-spacing: 1px;
+
+                @media screen and (max-width: 510px)
+                {
+                    font-size: 19px;
+                    padding-top: 5%;
+                }
+            }
+
+            @media screen and (max-width: 510px)
+            {
+                justify-content: center;
+            }
+        }
+
+        @media screen and (max-width: 1300px)
+        {
+            padding-top: 55vh;
+        }
+
+        @media screen and (max-width: 787px)
+        {
+            padding-top: 38vh;
+            text-align: center;
+            padding-bottom: 5vh;
+        }
+    }
+    
+    @media screen and (max-width: 435px)
+    {
+        justify-content: center;
     }
 
     .bouton{
@@ -73,79 +315,60 @@ html{
         justify-content: center;
         padding: 1.5vh 0; 
         margin-left: 10%;
+        border: $beige solid 3px;
             
         a{
             color: $blanc;
             font-family: 'Gothic A1', sans-serif;
             text-decoration: none;
-            font-size: 4vh;
+            font-size: 30px;
             font-weight: 400;
             letter-spacing: 1px;
+
+            @media screen and (max-width: 435px)
+            {
+                font-size: 25px;
+            }
+        }
+
+        @media screen and (max-width: 1400px)
+        {
+            margin-left: 5%;
+        }
+
+        @media screen and (max-width: 1300px)
+        {
+            margin-top: 11vh;
+            margin-left: 2%;
+        }
+
+        @media screen and (max-width: 787px)
+        {
+            margin-top: 10vh;
+            margin: 0 auto 10vh;
+        }
+
+        @media screen and (max-width: 435px)
+        {
+            width: 30vh;
+            height: 6.5vh;
+            padding: 1.2vh 0;
+            margin-left: 5%;
+            margin-top: 3vh;
         }
     }
-
-    .bloc_texte{
-        display: block;
-        margin-top: -35vh;
-        position: relative;
-
-        h1, h3{
-            color: $blanc;
-            display: flex;
-            justify-content: end;
-        }
-        
-        h1{
-            font-family: 'Bodoni Moda', serif;
-            font-size: 9vh;
-            letter-spacing: 2px;
-        }
-        
-        h3{
-            font-family: 'Gothic A1', sans-serif;
-            font-weight: 500;
-            font-size: 3vh;
-            letter-spacing: 1px;
-        }
-
-        #logo{
-            max-width: 10%;
-            height: auto;
-            margin-top: 5%;
-            position: absolute;
-            justify-content: end;
-        }
-    }
-
-    #portfolio{
-        max-width: 60%;
-        height: auto;
-        margin-top: 2.5%;
-        position: absolute;
-        margin-left: -5%;
-    }
-
-    // .fleche {
-    //     width: 0;
-    //     height: 0;
-    //     border-right: 5vh solid transparent;
-    //     border-left: 5vh solid transparent;
-    //     border-top: 4vh solid $noir;
-    //     justify-content: center;
-    //     flex: flex;
-    // }
 }
 
 // ****************************************************************************
 
 .slide2{
-    background: linear-gradient(150deg, $beige, 70%, $mauve1);
+    background: linear-gradient(150deg, $beige, 80%, $mauve1);
     min-height: 100vh;
     width: 100%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    position: relative;
     z-index: 2;
+    overflow: hidden;
 
     .wrapper2{
         width: 50%;
@@ -155,34 +378,52 @@ html{
         h1{
             color: $noir;
             font-family: 'Bodoni Moda', serif;
-            font-size: 10vh;
+            font-size: 75px;
+            letter-spacing: 1px;
+
+            @media screen and (max-width: 510px)
+            {
+                font-size: 70px;
+            }
         }
     
         p{
             color: $noir;
             font-family: 'Gothic A1', sans-serif;
-            font-size: 2.5vh;
-            margin-top: 8%;
-    
-            a{
-                text-decoration: underline;
-                color: $noir;
+            font-size: 18px;
+            margin-top: 10%;
 
+            @media screen and (max-width: 510px)
+            {
+                font-size: 15px;
             }
         }
 
         h3{
             color: $noir;
             font-family: 'Bodoni Moda', serif;
-            font-size: 3.5vh;
+            font-size: 30px;
             margin-top: 15%;
-            margin-bottom: 3%;
+            margin-bottom: 5%;
+            letter-spacing: 1px;
         }
 
         #competence{
-            max-width: 6vh;
+            max-width: 7vh;
             height: auto;
             margin: 20px 20px;
+
+            @media screen and (max-width: 865px)
+            {
+                max-width: 4vh;
+                margin: 15px 15px;
+            }
+        }
+
+        @media screen and (max-width: 510px)
+        {
+            width: 85%;
+            margin: 0 auto;
         }
     }
 
@@ -190,12 +431,19 @@ html{
         width: 50%;
         margin: 0 auto;
         margin-right: -10%;
+        z-index: -2;
 
         #oeil{
         max-width: 100%;
         height: auto;
         margin-top: -50vh;
         position: relative;
+        }
+
+        @media screen and (max-width: 510px)
+        {
+            margin-top: -27vh;
+            opacity: 0.5;
         }
     }
 }
@@ -218,38 +466,34 @@ html{
     h1{
         color: $blanc;
         font-family: 'Bodoni Moda', serif;
-        font-size: 10vh;
+        font-size: 75px;
+        letter-spacing: 1px;
+
+        @media screen and (max-width: 510px)
+        {
+            padding-top: 12vh;
+        }
     }
 
+    .wrapper2{
+        display: flex;
+        justify-content: space-around;
 
-        #container-products{
-            width: 80%;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            display: flex;
-        }
-
-        .products{
-            display: block;
-            width: 300px;
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-            margin-top: 20px;
-                
-            img{
-                object-fit: cover;
-                width: 800px;
-                height: 100%;
+        h2{
+            font-family: 'Gothic A1', sans-serif;
+            
+            a{
+                color: $blanc;
+                font-weight: 500;
             }
         }
+    }
 
     a{
         color: $noir;
         font-family: 'Gothic A1', sans-serif;
         text-decoration: none;
-        font-size: 3.5vh;
+        font-size: 26px;
         font-weight: 800;
         letter-spacing: 1px;
     }
@@ -265,7 +509,7 @@ html{
 // ****************************************************************************
 
 .slide4{
-    background: linear-gradient(150deg, $beige, 70%, $mauve1);
+    background: linear-gradient(150deg, $beige, 80%, $mauve1);
     height: 100vh;
     width: 100%;
     scroll-snap-align: start;
@@ -277,8 +521,20 @@ html{
     h1{
         color: $noir;
         font-family: 'Bodoni Moda', serif;
-        font-size: 10vh;
+        font-size: 75px;
         padding-bottom: -5%;
+        letter-spacing: 1px;
+
+        @media screen and (max-width: 720px)
+        {
+            margin-left: -5%;
+        }
+
+        @media screen and (max-width: 510px)
+        {
+            margin-left: 0;
+            font-size: 60px;
+        }
 
     }
 
@@ -288,10 +544,34 @@ html{
         margin-top: -72vh;
         margin-left: -5%;
         position: relative;
+        z-index: -5;
+
+        @media screen and (max-width: 1520px)
+        {
+            margin-top: -50vh;
+        }
+
+        @media screen and (max-width: 1520px)
+        {
+            max-width: 50%;
+            margin-top: -30vh;
+        }
+
+        @media screen and (max-width: 510px)
+        {
+            margin-left: -60%;
+            max-width: 100%;
+            margin-top: -65vh;
+        }
     }
 
     form{
         margin-left: 50%;
+
+        @media screen and (max-width: 510px)
+        {
+            margin-left: 0;
+        }
 
         .form-group{
             width: 100%;
@@ -301,14 +581,23 @@ html{
                     display: block;
                     color: $noir;
                     font-family: 'Gothic A1', sans-serif;
-                    font-size: 2.8vh;
+                    font-size: 21px;
                     margin-top: 3%;
 
+                    @media screen and (max-width: 510px)
+                    {
+                        font-size: 17px;
+                    }
                 }
 
                 textarea{
                     resize: none;
                     height: 12em;
+
+                    @media screen and (max-width: 510px)
+                    {
+                        height: 7em;
+                    }
                 }
         }
 
@@ -318,12 +607,20 @@ html{
             padding: 10px;
             margin-top: 5px;
             outline: solid $noir 0.5px;
+
+            @media screen and (max-width: 510px)
+            {
+                margin-top: 2.5px;
+                padding: 7.5px;
+            }
         }
         
         .form-group input[type=submit]{
             width: auto;
             padding: 3px 50px;
             cursor: pointer;
+            background-color: $violet;
+            color: $blanc;
         }
     }
 
@@ -348,7 +645,7 @@ html{
     
     .error{
         font-family: 'Gothic A1', sans-serif;
-        font-size: 2.2vh;
+        font-size: 16.5px;
         font-weight: 800;
         width: 100%;
         text-align: center;
@@ -369,10 +666,17 @@ html{
 
 .footer{
     font-family: 'Bodoni Moda', serif;
-    font-size: 2.2vh;
+    font-size: 16.5px;
     padding-top: 3%;
     padding-bottom: 2%;
     color: $noir;
+    text-shadow: $mauve2 1px 1px 15px;
+
+    @media screen and (max-width: 510px)
+    {
+        padding-top: 15%;
+        padding-bottom: 5%;
+    }
 
     ul{
         list-style:none;
@@ -393,7 +697,7 @@ html{
         font-family: 'Gothic A1', sans-serif;
         margin-top:1%;
         text-align:center;
-        font-size: 1.7vh;
+        font-size: 13px;
         font-weight: 500;
     }
 }
@@ -401,12 +705,80 @@ html{
 
 // ****************************************************************************
 
+.slide5{
+    background: $mauve2;
+    min-height: 100vh;
+    width: 100%;
 
+    nav{
+        display: flex;
+        padding-top: 2.5%;
+        // justify-content: end;
+            
+        .wrapper2{
+            width: 70%;
+            margin-right: 30%;
+            margin-bottom: 5%;
+    
+            h1{
+                color: $blanc;
+                font-family: 'Bodoni Moda', serif;
+                font-size: 50px;
+                margin-bottom: 7.5%;
+            }
+        }
+
+        ul{
+            list-style: none;
+            padding-top: 2%;
+            font-size: 23px;
+            // outline: solid $violet 1vh;
+                
+            li{
+                font-family: 'Gothic A1', sans-serif;
+                background-color: $violet;
+                padding: 15px 25px;
+                    
+                a{
+                    color: $blanc;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .products{
+        text-align: center;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+                    
+        img{
+            object-fit: cover;
+            width: 800px;
+            height: 100%;
+            width: 30%;
+            background: no-repeat;
+        }
+    
+        .prod-title{
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 20px;
+            color: $blanc;
+         }
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    
+}
 
 // ****************************************************************************
 
 .slide6{
-    background: linear-gradient(150deg, $beige, 70%, $mauve1);
+    background: linear-gradient(150deg, $beige, 80%, $mauve1);
     min-height: 100vh;
     width: 100%;
 
@@ -431,7 +803,7 @@ html{
         ul{
             list-style: none;
             padding-top: 2%;
-            font-size: 3vh;
+            font-size: 23px;
             // outline: solid $violet 1vh;
                 
             li{
