@@ -27,19 +27,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icones/apple-touch-57px.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icones/apple-touch-72px.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icones/apple-touch-76px.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icones/apple-touch-114px.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icones/apple-touch-120px.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icones/apple-touch-144px.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icones/apple-touch-152px.png">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-196px.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-160px.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-96px.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-32px.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/icones/favicon-16px.png" sizes="16x16">
+    <link rel="mask-icon" href="/images/icones/safari-svg.svg" color="#000000">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Galerie</title>
 </head>
 <body>
+
     <h3 class='categorie'><?= $don['cnom'] ?></h3>
     <p><?= nl2br($don['cdescri']) ?></p>
     <h1 class="title"><?= $don['ptitle'] ?></h1>
-    <div class="date">Le <?= $don['day'] ?> <?= $months[$don['month'] - 1] ?> <?= $don['year'] ?></div>
+    <!-- <div class="date">Le <?= $don['day'] ?> <?= $months[$don['month'] - 1] ?> <?= $don['year'] ?></div> -->
     <div class="description"><?= nl2br($don['pdescri']) ?></div>
     <div class="image">
-        <img src="images/<?= $don['pcover'] ?>" alt="image de <?= $don['ptitle'] ?>">
+        <img src="images/bdd/<?= $don['pcover'] ?>" alt="image de <?= $don['ptitle'] ?>">
     </div>
+
     <h2>Galerie</h2>
+
     <?php
         $galerie = $bdd->prepare("SELECT * FROM images WHERE id_products=?");
         $galerie->execute([$id]);
@@ -55,5 +71,6 @@
         }
         $galerie->closeCursor();
     ?>
+
 </body>
 </html>

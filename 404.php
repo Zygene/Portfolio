@@ -29,12 +29,12 @@
 <div class="slide5">
         <div class="wrapper">
             
-            <h2 style="text-align: center; font-size: 15vh; padding-top: 20vh; font-family: 'Gothic A1', sans-serif; color: #F8F8F8">Erreur 404</h2>
-            <h2 style="text-align: center; font-size: 3.05vh; font-family: 'Gothic A1', sans-serif; font-weight: 500; color: #F8F8F8">Le produit que vous recherchez n'existe pas (ou plus)</h2>
+            <h2 style="text-align: center; margin-left: -5%; font-size: 13vh; padding-top: 15vh; font-family: 'Gothic A1', sans-serif; color: #F8F8F8">Erreur 404</h2>
+            <h2 style="text-align: center; margin-left: -5%; font-size: 2.68vh; font-family: 'Gothic A1', sans-serif; font-weight: 500; color: #F8F8F8; padding-bottom: 7.5%">Le produit que vous recherchez n'existe pas (ou plus)</h2>
             
             <nav>
-                <ul style="display: block; margin: 0 auto 0 auto">
-                    <li><a href="index.php#galerie">Retour</a></li>
+                <ul style="display: block; margin: 0 auto 0 auto;">
+                    <li style="border-radius: 5px; background-color: #530E33"><a href="index.php#galerie">Retour</a></li>
                 </ul>
             </nav>
 
