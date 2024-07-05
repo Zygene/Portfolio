@@ -474,44 +474,65 @@ html{
         font-family: 'Bodoni Moda', serif;
         font-size: 75px;
         letter-spacing: 1px;
+        padding-bottom: 4%;
 
         @media screen and (max-width: 510px)
         {
             padding-top: 12vh;
+            padding-bottom: 10%;
         }
     }
 
-    .wrapper2{
-        display: flex;
-        justify-content: space-around;
-        padding-top: 20vh;
-
-        h2{
+    .wrapper2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+        gap: 20px;
+    }
+    
+    @media screen and (max-width: 650px) {
+        .wrapper2 {
+            grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+        }
+    }
+    
+    #illustr, #misenp, #anim {
+        h2 {
             font-family: 'Gothic A1', sans-serif;
-            
-            a{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center center;
+    
+            a {
                 color: $blanc;
                 font-weight: 500;
                 text-align: center;
+                text-decoration: none;
+            }
+
+            a:hover{
+                color: $violet;
             }
         }
-    }
+    
+        img {
+            display: block;
+            width: 75%;
+            height: auto;
+            margin: 0 auto;
+            text-align: center;
+            }
 
-    a{
-        color: $noir;
-        font-family: 'Gothic A1', sans-serif;
-        text-decoration: none;
-        font-size: 26px;
-        font-weight: 800;
-        letter-spacing: 1px;
+            @media screen and (max-width: 650px)
+            {
+                width: 100%;
+            }
+          
     }
-
-    // #portfolio{
-    //     max-width: 45%;
-    //     height: auto;
-    //     margin-top: 5%;
-    //     position: relative;
-    // }
 }
 
 // ****************************************************************************
@@ -590,15 +611,26 @@ html{
 
         .form-group{
             width: 100%;
-            margin: 2% 0;
+            margin: 3% 0;
+
+            @media screen and (max-width: 800px)
+            {
+                text-align: right;
+            }
 
                 label{
-                    display: block;
+                    display: flex;
                     color: $noir;
                     font-family: 'Gothic A1', sans-serif;
                     font-size: 21px;
                     margin-top: 3%;
+                    padding-right: 10px;
 
+                    @media screen and (max-width: 800px)
+                    {
+                        justify-content: flex-end;
+                    }
+                    
                     @media screen and (max-width: 510px)
                     {
                         font-size: 17px;
@@ -678,45 +710,46 @@ html{
         padding: 10px 0;
         margin-bottom: -10px;
     }
+
+    .footer{
+        font-family: 'Bodoni Moda', serif;
+        font-size: 16.5px;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        color: $noir;
+        text-shadow: $mauve2 1px 1px 10px;
+    
+        @media screen and (max-width: 510px)
+        {
+            padding-top: 15%;
+            padding-bottom: 5%;
+        }
+    
+        ul{
+            list-style:none;
+            text-align:center;
+            line-height:1.8;
+    
+            a{
+                color: $noir;
+                text-decoration:none;
+            }
+    
+            a:hover{
+                color: $violet;
+            }
+        }
+    
+        .copyright{
+            font-family: 'Gothic A1', sans-serif;
+            margin-top:1%;
+            text-align:center;
+            font-size: 13px;
+            font-weight: 500;
+        }
+    }
 }
 
-.footer{
-    font-family: 'Bodoni Moda', serif;
-    font-size: 16.5px;
-    padding-top: 3%;
-    padding-bottom: 2%;
-    color: $noir;
-    text-shadow: $mauve2 1px 1px 10px;
-
-    @media screen and (max-width: 510px)
-    {
-        padding-top: 15%;
-        padding-bottom: 5%;
-    }
-
-    ul{
-        list-style:none;
-        text-align:center;
-        line-height:1.8;
-
-        a{
-            color: $noir;
-            text-decoration:none;
-        }
-
-        a:hover{
-            color: $violet;
-        }
-    }
-
-    .copyright{
-        font-family: 'Gothic A1', sans-serif;
-        margin-top:1%;
-        text-align:center;
-        font-size: 13px;
-        font-weight: 500;
-    }
-}
 
 
 // ****************************************************************************
@@ -846,6 +879,44 @@ html{
         padding-top: 10px;
         padding-bottom: 10%;
     }
+
+    .footer{
+        font-family: 'Bodoni Moda', serif;
+        font-size: 16.5px;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        color: $blanc;
+        text-shadow: $mauve2 1px 1px 10px;
+    
+        @media screen and (max-width: 510px)
+        {
+            padding-top: 15%;
+            padding-bottom: 5%;
+        }
+    
+        ul{
+            list-style:none;
+            text-align:center;
+            line-height:1.8;
+    
+            a{
+                color: $blanc;
+                text-decoration:none;
+            }
+    
+            a:hover{
+                color: $violet;
+            }
+        }
+    
+        .copyright{
+            font-family: 'Gothic A1', sans-serif;
+            margin-top:1%;
+            text-align:center;
+            font-size: 13px;
+            font-weight: 500;
+        }
+    }
 }
 
 // ****************************************************************************
@@ -929,6 +1000,43 @@ html{
             font-size: 17px;
             margin-bottom: 5%;
         }
+    }
 
+    .footer{
+        font-family: 'Bodoni Moda', serif;
+        font-size: 16.5px;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        color: $noir;
+        text-shadow: $mauve2 1px 1px 10px;
+    
+        @media screen and (max-width: 510px)
+        {
+            padding-top: 15%;
+            padding-bottom: 5%;
+        }
+    
+        ul{
+            list-style:none;
+            text-align:center;
+            line-height:1.8;
+    
+            a{
+                color: $noir;
+                text-decoration:none;
+            }
+    
+            a:hover{
+                color: $violet;
+            }
+        }
+    
+        .copyright{
+            font-family: 'Gothic A1', sans-serif;
+            margin-top:1%;
+            text-align:center;
+            font-size: 13px;
+            font-weight: 500;
+        }
     }
 }

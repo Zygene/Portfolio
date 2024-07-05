@@ -119,6 +119,7 @@
                 <img src="images/portfolio/Html.png" alt="Logo Html" id="competence">
                 <img src="images/portfolio/Css.png" alt="Logo Css" id="competence">
                 <img src="images/portfolio/Php.png" alt="Logo Php" id="competence">
+                <img src="images/portfolio/Blender.png" alt="Logo Blender" id="competence">
 
             </div>
 
@@ -135,14 +136,29 @@
     <div class="slide3" id="galerie">
         <div class="wrapper">
 
-            <!-- <img src="images/portfolio/Portfolio.svg" alt="Portfolio Robin Wilmes" id="portfolio"> -->
-
             <h1>Galerie</h1>
 
             <div class="wrapper2">
-                <h2><a href="illustrations.php">Illustrations</a></h2>
-                <h2><a href="mep.php">Mise en page</a></h2>
-                <h2><a href="animations.php">Animations</a></h2>
+                
+                <div id="illustr">
+                    <h2><a href="illustrations.php">Illustrations</a></h2>
+                    <a href="illustrations.php"><img src="images/portfolio/sentiment.jpg" alt=""></img></a>
+                </div>
+
+                <div id="misenp">
+                    <h2><a href="mep.php">Mise en page</a></h2>
+               <a href="mep.php"><img src="images/portfolio/typo.jpg" alt=""></img></a>
+                </div>
+
+                <div id="anim">
+                    <h2><a href="animations.php">Animations</a></h2>
+                 <a href="animations.php"><img src="images/portfolio/soleil.jpg" alt=""></img></a>
+                </div>
+
+            </div>
+
+                
+
             </div>
 
         </div>
@@ -189,7 +205,7 @@
                 <?php
                     if(isset($_GET['error']))
                     {
-                        echo "<div class='error'>Une erreur est survenue</div>";
+                        echo "<div class='error'>Veuillez remplir le formulaire correctement</div>";
                     }
                 ?>
 
